@@ -12,7 +12,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-
+        <env>${env}</env>
+        <suiteFile>${suiteFile}</suiteFile>
     </properties>
 
 
@@ -21,7 +22,7 @@
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
-        <version>7.4.0</version>
+        <version>6.14.3</version>
         <!-- <scope>test</scope> -->
     </dependency>
     </dependencies>
@@ -41,10 +42,13 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.22.0</version>
+            <version>3.0.0-M1</version>
             <configuration>
+                <systemPropertyVariables>
+                <env>${env}</env>
+                </systemPropertyVariables>
                 <suiteXmlFiles>
-                <suiteXMLFile>${suitefile}</suiteXMLFile>
+                <suiteXmlFile>${suiteFile}</suiteXmlFile>
             </suiteXmlFiles>
             </configuration>
         </plugin>
